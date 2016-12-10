@@ -11,12 +11,16 @@ export class LoginComponent {
 
     private returnUrl: string;
 
+    public username:string;
+
+    public password:string;
+
     constructor(private router: Router, private route: ActivatedRoute, private auth: AuthService) {
         this.returnUrl = this.route.snapshot.params['returnUrl'] || '/';
     }
 
-    login(username: string, password: string): void {
-        this.auth.login(username, password).subscribe(() => {
+    login(): void {
+        this.auth.login(this.username, this.password).subscribe(() => {
             this.router.navigate([this.returnUrl]);
         }, error => {
             Materialize.toast(error, 1500);

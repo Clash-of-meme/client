@@ -1,3 +1,15 @@
-<p>
-  duel works!
-</p>
+<div class="container row">
+    <div class="center-align">
+        <h1>Duel N° {{(duel | async)?.id}}</h1>
+    </div>
+    <div class="col s6">
+        <app-meme-card [memeId]="(duel | async)?.id_meme1" [finished]="!(duel|async)?.encours"
+                       [votes]="(duel|async)?.vote_meme1" (vote$)="vote"
+                       class="col offset-s2 s8"></app-meme-card>
+    </div>
+    <div class="col s6">
+        <app-meme-card [memeId]="(duel | async)?.id_meme2" [finished]="!(duel|async)?.encours"
+                       [votes]="(duel|async)?.vote_meme2" (vote$)="vote"
+                       class="col offset-s2 s8"></app-meme-card>
+    </div>
+</div>

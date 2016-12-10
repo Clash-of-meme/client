@@ -1,3 +1,12 @@
-<p>
-  memes works!
-</p>
+<div class="container row">
+    <ul class="collection with-header col s6 offset-s3">
+        <li class="collection-header"><h4>Classement des memes</h4></li>
+
+        <li class="collection-item avatar" *ngFor="let meme of memes | async">
+            <img [src]="meme.url"
+                 alt="aperçu meme" class="circle">
+            <span class="title">{{getMemeAuthor(meme)}}</span>
+            <span class="secondary-content">{{meme.elo}}</span>
+        </li>
+    </ul>
+</div>

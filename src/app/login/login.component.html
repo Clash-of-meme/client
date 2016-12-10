@@ -1,3 +1,45 @@
-<p>
-  login works!
-</p>
+<div style="text-align: center;">
+    <div class="section"></div>
+
+    <h5 class="indigo-text">Merci de vous identifier</h5>
+    <div class="section"></div>
+
+    <div class="container">
+        <div class="z-depth-1 grey lighten-4 row"
+             style="display: inline-block; padding: 32px 48px 0 48px; border: 1px solid #EEE;">
+
+            <form class="col s12">
+                <div class='row'>
+                    <div class='col s12'>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input [(ngModel)]="username" class='validate' type="text" name='username' id='username'/>
+                        <label for='username'>Identifiant</label>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input [(ngModel)]="password" class='validate' type='password' name='password'
+                               id='password'/>
+                        <label for='password'>Mot de passe</label>
+                    </div>
+                </div>
+
+                <br/>
+                <div style="text-align: center;">
+                    <div class='row'>
+                        <button (click)="login()" name='btn_login'
+                                class='col s12 btn btn-large waves-effect indigo'>
+                            Login
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a [routerLink]="['/signup']">Create account</a>
+</div>
