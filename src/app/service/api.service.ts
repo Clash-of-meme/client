@@ -31,7 +31,7 @@ export class ApiService {
         options.headers = new Headers();
         options.headers.append('Content-Type', 'application/json');
         options.headers.append('Authorization', 'Basic ' + this.auth.token);
-        return this.http.request("/api/" + uri, options).map(response => {
+        return this.http.request("http://164.132.54.5:8080/APIGatewayClashOfMeme/" + uri, options).map(response => {
             return response.json() as T;
         });
     }

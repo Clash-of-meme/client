@@ -5,21 +5,12 @@
         <li class="collection-item avatar" *ngFor="let meme of memes | async">
             <img [src]="meme.url"
                  alt="aperçu meme" class="circle">
-            <span class="title">{{getMemeAuthor(meme)}}</span>
-            <span class="secondary-content">{{meme.elo}}</span>
+            <span class="title">{{meme.name}}</span>
+            {{meme.elo}}
+            <span class="secondary-content"><a class="btn waves" (click)="startDuel(meme)"></a></span>
         </li>
         <li>
-            <a class="btn btn-flat waves" (click)="modal()">Nouveau meme</a>
+            <a class="btn btn-flat waves" *ngIf="userIsMe() | async" [routerLink]="['meme','create']">Nouveau meme</a>
         </li>
     </ul>
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>
 </div>

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs";
 
 @Injectable()
@@ -9,7 +9,12 @@ export class AuthService {
     }
 
     login(username: string, password: string): Observable<void> {
-        return this.http.post('/api/login', JSON.stringify({login: username, password: password}))
+        let query: URLSearchParams = new URLSearchParams();
+
+        query.append('login', username);
+        query.append('password', password);
+
+        return this.http.get('/api/login', {search: query})
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let token = response.json().token;
@@ -20,10 +25,6 @@ export class AuthService {
     public get token(): string {
         return localStorage.getItem('currentUser');
     }
-
-    // signup(username:string, password:string):Observable<void>{
-    //
-    // }
 
     logout() {
         // remove user from local storage to log user out

@@ -1,3 +1,23 @@
-<p>
-  meme-creation works!
-</p>
+<div class="container row">
+    <h1>Création d'un meme</h1>
+
+    <div class="col s6" *ngFor="let row of pictures | async">
+        <div class="col s4" *ngFor="let col of row">
+            <img src="{{col.url}}" alt="" (click)="select(col)">
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="input-field">
+            <input id="text_top" class="validate" type="text" [(ngModel)]="meme.text_top">
+            <label for="text_top">Texte haut</label>
+        </div>
+
+        <div class="input-field">
+            <input id="text_bottom" class="validate" type="text" [(ngModel)]="meme.text_bottom">
+            <label for="text_bottom">Texte bas</label>
+        </div>
+    </div>
+    <div class="col s12">
+        <button class="btn waves" (click)="save()">Créer le meme</button>
+    </div>
+</div>

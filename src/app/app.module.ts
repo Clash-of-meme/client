@@ -15,6 +15,7 @@ import {DuelComponent} from "./duel/duel.component";
 import {MemeCardComponent} from "./duel/meme-card/meme-card.component";
 import {UserMemesComponent} from "./user-memes/user-memes.component";
 import "materialize-css";
+import {MemeCreationComponent} from "./meme-creation/meme-creation.component";
 
 @NgModule({
     declarations: [
@@ -25,8 +26,8 @@ import "materialize-css";
         SignupComponent,
         MemeCardComponent,
         DuelComponent,
-        MemeCardComponent,
         UserMemesComponent,
+        MemeCreationComponent
     ],
     imports: [
         BrowserModule,

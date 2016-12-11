@@ -22,7 +22,7 @@ export class MemesComponent {
             });
     }
 
-    public getMemeAuthor(meme: Meme): Observable<User> {
-        return this.api.get<User>('user/' + meme.id_user);
+    public getMemeAuthor(meme: Meme): string {
+        return meme.login_user;
     }
 }

@@ -4,11 +4,13 @@ import {Routes, RouterModule} from "@angular/router";
 import {MemesComponent} from "./memes/memes.component";
 import {DuelComponent} from "./duel/duel.component";
 import {UserMemesComponent} from "./user-memes/user-memes.component";
+import {MemeCreationComponent} from "./meme-creation/meme-creation.component";
 
 const appRoutes: Routes = [
     {path: '', component: MemesComponent}, //, canActivate: [AuthGuardService]
     {path: 'duel/:id_duel', component: DuelComponent},
     {path: 'user/:id_user/memes', component: UserMemesComponent},
+    {path: 'meme/create', component: MemeCreationComponent},
 
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},

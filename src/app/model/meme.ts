@@ -9,4 +9,5 @@ export interface Meme {
     match_count: number;
     winrate: number;
     id_user: number;
+    login_user: string;
 }
